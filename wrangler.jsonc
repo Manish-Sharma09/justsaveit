@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "justsaveit",
+  "main": ".open-next/worker.js",
+
+  // nodejs_compat is not optional here: the app uses node:crypto (scrypt for
+  // password hashing, HMAC for unlock cookies) and the MongoDB driver needs
+  // Node-style TCP sockets.
+  "compatibility_date": "2026-09-20",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+
+  "observability": {
+    "enabled": true
+  },
+
+  // The apex only. Everything the site emits — canonical, og:url, sitemap —
+  // points at the bare domain, so serving www as well would split the same
+  // pages across two hostnames and compete with itself in search.
+  "routes": [
+    { "pattern": "justsaveit.online", "custom_domain": true }
+  ],
+
+  // Non-secret configuration. MONGODB_URI and APP_SECRET are secrets and are
+  // set with `wrangler secret put`, never here — this file is committed.
+  "vars": {
+    "STORAGE_DRIVER": "mongo",
+    "MAX_FILE_BYTES": "26214400",
+    "MAX_DROP_BYTES": "104857600",
+    "MAX_FILES_PER_DROP": "25"
+  }
+}

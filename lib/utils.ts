@@ -5,9 +5,13 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export default function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
-  let timeout: NodeJS.Timeout;
-  return function (...args: Parameters<T>) {
+/** Trailing-edge debounce. Retained from the original implementation. */
+export default function debounce<Args extends unknown[]>(
+  func: (...args: Args) => void,
+  wait: number
+) {
+  let timeout: ReturnType<typeof setTimeout>;
+  return function (...args: Args) {
     clearTimeout(timeout);
     timeout = setTimeout(() => func(...args), wait);
   };
