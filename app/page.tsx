@@ -115,7 +115,7 @@ export default function HomePage() {
             <div className="shell relative z-1 flex flex-col items-center pb-10 pt-28 sm:pb-14 sm:pt-32 lg:pb-16 lg:pt-36">
               <Reveal className="w-full max-w-2xl text-center">
                 <p className="eyebrow text-lemon drop-shadow-[0_1px_2px_rgb(0_0_0/0.25)]">
-                  Free file transfer · No login · No tracking
+                  Free file transfer · No login · No ads
                 </p>
 
                 {/* The one place on the site set in a serif. Optical sizes this
@@ -238,7 +238,7 @@ export default function HomePage() {
               {[
                 "Anyone with the link can open a drop. That is the point — keep the link to the people you meant.",
                 "Expiry is enforced by the database, so an expired drop and its files really are gone.",
-                "Recent drops live in your browser, never on the server. No analytics, no accounts, no email.",
+                "Recent drops live in your browser, never on the server. No accounts, no email addresses, nothing to sign up for.",
               ].map((line, index) => (
                 <Reveal key={line} delay={index * 90}>
                   <p className="border-l-2 border-line pl-4 text-sm leading-relaxed text-body transition-colors hover:border-accent">

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from "@/components/analytics";
 import { ToastProvider } from "@/components/ui/toast";
 import { APP_NAME } from "@/lib/config";
 import {
@@ -142,6 +143,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <GoogleAnalytics />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} min-h-dvh`}>
         <a

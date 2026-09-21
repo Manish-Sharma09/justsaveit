@@ -143,7 +143,7 @@ export function SiteFooter() {
           <div className="flex items-center gap-2.5">
             <Logo size={22} />
             <p className="text-sm text-body">
-              Just Save It — no account, no tracking, no fuss.
+              Just Save It — no account, no ads, no fuss.
             </p>
           </div>
 

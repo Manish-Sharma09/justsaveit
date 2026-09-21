@@ -1,0 +1,19 @@
+# Cloudflare static-asset headers.
+#
+# Consumed by Cloudflare at deploy time and never served as a file. Next copies
+# public/ into the build output, and OpenNext copies that into
+# .open-next/assets, which is the directory Cloudflare reads this from.
+#
+# SCOPE: these rules apply ONLY to responses served by Cloudflare's static
+# asset layer (/_next/static/*, images, the manifest). Every HTML page here is
+# rendered by the Worker instead, so it never passes through this file — the
+# equivalent rule for pages lives in middleware.ts and the two are meant to be
+# changed together.
+
+# Keep the preview host out of search results. It serves the same content as
+# the custom domain, and two hosts indexing identical pages splits the ranking
+# signal between them. Currently dormant: workers.dev is disabled, so this host
+# 404s. It exists so that turning workers.dev back on cannot quietly start
+# competing with justsaveit.online.
+https://justsaveit.manishsharma6501.workers.dev/*
+  X-Robots-Tag: noindex

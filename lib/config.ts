@@ -7,6 +7,8 @@ export const publicConfig = {
   realtimeUrl: process.env.NEXT_PUBLIC_REALTIME_URL ?? "",
   /** Canonical origin, used when building share URLs on the server. */
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "",
+  /** GA4 measurement id. Empty disables analytics entirely. */
+  gaMeasurementId: process.env.NEXT_PUBLIC_GA_ID ?? "",
 } as const;
 
 export const APP_NAME = "Just Save It";

@@ -8,8 +8,8 @@ import { formatBytes, formatLongDate } from "@/lib/format";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "What Just Save It stores, for how long, and what it never collects. No accounts, " +
-    "no analytics and no email addresses — but file transfers are not end-to-end encrypted.",
+    "What Just Save It stores, for how long, and who else sees it. No accounts or " +
+    "emails — but we use Google Analytics, and transfers are not end-to-end encrypted.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -29,8 +29,9 @@ export default function PrivacyPage() {
       <DocCallout title="The short version">
         <p>
           We do not ask for your name, email address or phone number, and there is no
-          analytics or advertising code on this site. What we hold is the content you
-          choose to upload, for as long as you choose to keep it. That content is{" "}
+          advertising on this site. We do use Google Analytics to count visits, which sets
+          cookies and tells Google which pages were opened. What we hold is the content
+          you choose to upload, for as long as you choose to keep it. That content is{" "}
           <strong className="font-medium text-ink">not end-to-end encrypted</strong>, so
           treat the service as convenient rather than confidential.
         </p>
@@ -79,9 +80,9 @@ export default function PrivacyPage() {
         <DocList
           items={[
             "No account, name, email address or phone number — there is nothing to sign up for.",
-            "No analytics, no advertising pixels, no behavioural tracking and no third-party trackers of any kind.",
-            "No fingerprinting, and no profile linking one drop to another.",
-            "Fonts are served from our own server rather than from a font CDN, so loading a page does not announce your visit to a third party.",
+            "No advertising pixels, no ad networks, and nothing sold or passed to data brokers.",
+            "No profile linking one drop to another, and no drop content of any kind sent to analytics.",
+            "Fonts are self-hosted rather than loaded from a font CDN.",
           ]}
         />
       </DocSection>
@@ -101,10 +102,39 @@ export default function PrivacyPage() {
         </p>
       </DocSection>
 
+      <DocSection title="Analytics">
+        <p>
+          This site uses Google Analytics, so that we can tell whether anyone is actually
+          using it. It records page views, the page you arrived from, your approximate
+          location from your IP address, and broad device and browser details. Google
+          processes this on our behalf and it is not shared with anyone else.
+        </p>
+        <p>
+          Two limits are worth stating. The contents of a drop &mdash; your text, your
+          files, their names &mdash; are never sent to analytics. And because a drop&rsquo;s
+          URL is its key, any address beginning <code>/r/</code> is replaced with{" "}
+          <code>/r/(redacted)</code> before it is reported, so a working link to your
+          transfer cannot reach Google through this route.
+        </p>
+        <p>
+          If you would rather not be counted, blocking cookies for this site, using a
+          content blocker, or installing Google&rsquo;s{" "}
+          <a
+            href="https://tools.google.com/dlpage/gaoptout"
+            className="text-accent hover:underline"
+            rel="noreferrer"
+            target="_blank"
+          >
+            opt-out browser add-on
+          </a>{" "}
+          will all stop it. Nothing on the site stops working if you do.
+        </p>
+      </DocSection>
+
       <DocSection title="Cookies and browser storage">
         <p>
-          There is no cookie banner because there is nothing to consent to: no tracking or
-          advertising cookies are set. Two mechanisms are used, both strictly functional.
+          Three mechanisms are used: two that the service needs in order to work, and one
+          for the analytics described above.
         </p>
         <DocList
           items={[
@@ -119,6 +149,12 @@ export default function PrivacyPage() {
               Your list of recent drops and your light/dark preference are kept in your own
               browser. They are never transmitted to us. Clearing your site data removes
               them, and we never held a copy.
+            </>,
+            <>
+              <strong className="font-medium text-ink">Google Analytics cookies.</strong>{" "}
+              Set by Google to tell repeat visits apart from new ones. They hold a randomly
+              generated identifier rather than anything about you, and expire after up to
+              two years. Clearing your site data or blocking cookies removes them.
             </>,
           ]}
         />
@@ -158,15 +194,21 @@ export default function PrivacyPage() {
               They process data on our behalf in order to run the service.
             </>,
             <>
+              <strong className="font-medium text-ink">Google Analytics.</strong> Receives
+              page views and the technical details listed under{" "}
+              <em>Analytics</em> above. It never receives the contents of a drop, and drop
+              addresses are redacted before they are reported.
+            </>,
+            <>
               <strong className="font-medium text-ink">A live-sync server, where enabled.</strong>{" "}
               If real-time collaboration is switched on for this deployment, drop updates
               pass through a separate synchronisation service. It is optional and the
               service works fully without it.
             </>,
             <>
-              <strong className="font-medium text-ink">Nobody else.</strong> We do not sell,
-              rent or share content or usage data with advertisers, brokers or any other
-              third party.
+              <strong className="font-medium text-ink">Nobody else.</strong> We do not sell
+              or rent your content or your data, and none of it goes to advertisers or data
+              brokers. Beyond the providers named above, nobody else receives it.
             </>,
           ]}
         />

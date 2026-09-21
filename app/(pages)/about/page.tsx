@@ -101,9 +101,10 @@ export default function AboutPage() {
         </p>
         <p>
           That is why the limits are what they are, and it is also why there is no paid
-          plan, no advertising and no analytics: there is no business model that would
-          require your attention or your data. The trade-off is honest — a smaller ceiling,
-          in exchange for nobody needing to monetise you.
+          plan and no advertising. There is analytics — Google Analytics, so we can see
+          whether anyone actually uses this — but there is no business model that depends
+          on your attention, and nothing about you is for sale. The trade-off is honest —
+          a smaller ceiling, in exchange for nobody needing to monetise you.
         </p>
       </DocSection>
 
